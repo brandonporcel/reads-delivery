@@ -9,11 +9,6 @@ const HeaderTag = styled.header`
 	background-color: var(--white);
 	font-family: var(--heading-font-family);
 
-	.center {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
 	.nav-shop-link {
 		background-color: var(--blue);
 		order: 1;
@@ -22,10 +17,6 @@ const HeaderTag = styled.header`
 			text-transform: uppercase;
 			color: var(--yellow);
 			padding: 1em;
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 	}
 
@@ -59,7 +50,9 @@ export default function Header() {
 	return (
 		<HeaderTag className="header">
 			<nav className="center nav-shop-link">
-				<a href="#shop">shop</a>
+				<a className="hover-underline" href="#shop">
+					shop
+				</a>
 			</nav>
 			<h1 className="center">
 				<a href="/">[reads]</a>

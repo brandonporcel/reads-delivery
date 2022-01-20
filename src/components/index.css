@@ -55,18 +55,7 @@ body {
 	width: 100%;
 	min-height: 100vh;
 }
-aside {
-	grid-area: messaging;
-	border: 1px solid;
-}
-.messaging__sticky {
-	height: 100vh;
-	position: sticky;
-	top: 0;
-	display: flex;
-	justify-content: content;
-	align-items: center;
-}
+
 .top {
 	grid-area: top;
 }
@@ -93,4 +82,19 @@ aside {
 	display: grid;
 	grid-column: 1 / span 2;
 	gap: var(--gutter);
+}
+/* global */
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* .hover-underline {
+	text-decoration: none;
+} */
+.hover-underline:hover {
+	text-decoration: underline;
+}
+a {
+	text-decoration: none;
 }

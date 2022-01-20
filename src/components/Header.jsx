@@ -7,8 +7,7 @@ const HeaderTag = styled.header`
 	display: grid;
 	grid-template-columns: 2fr 4fr 2fr;
 	background-color: var(--white);
-	font-family: var(--heading-font-family);
-
+	z-index: 10;
 	.nav-shop-link {
 		background-color: var(--blue);
 		order: 1;

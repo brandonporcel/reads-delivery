@@ -16,9 +16,7 @@ a {
 /* variables */
 :root {
 	--heading-font-baseline-ratio: 0.147;
-	--heading-font-fallback-families: 'Helvetica Neue', Arial, 'Lucida Grande',
-		sans-serif;
-	--heading-font-family: Helvetica;
+	--heading-font-family: 'Helvetica';
 	--heading-font-style: normal;
 	--heading-font-weight: 400;
 	--heading-font-variants: FontCollectionDrop;
@@ -34,11 +32,11 @@ a {
 	--blue: #168ed5;
 	--green: #417505;
 	--yellow: #faec90;
+	--white: #f7f7f7;
 	--unit: 80px;
 }
 body {
 	min-height: 100vh;
-
 	height: 100%;
 	background: rgb(39, 39, 39);
 }
@@ -51,7 +49,7 @@ body {
 .container {
 	display: grid;
 	grid-template:
-		'messaging top' auto
+		'messaging top'
 		/* auto=row;;;;80 1fr vertical */
 		'bottom bottom' auto / 80px 1fr;
 	width: 100%;
@@ -72,11 +70,7 @@ aside {
 .top {
 	grid-area: top;
 }
-.header {
-	position: sticky;
-	top: 0;
-	border: 3px solid green;
-}
+
 .section-content-thanks {
 	background: #f45817;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));

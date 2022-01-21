@@ -7,7 +7,7 @@ const HeaderTag = styled.header`
 	display: grid;
 	grid-template-columns: 2fr 4fr 2fr;
 	background-color: var(--white);
-	z-index: 10;
+	z-index: 50;
 	.nav-shop-link {
 		background-color: var(--blue);
 		order: 1;

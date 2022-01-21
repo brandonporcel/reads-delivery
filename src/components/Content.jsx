@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Brands from './Brands';
 import Button from './Button';
 import SectionInfo from './SectionInfo';
 const MainTag = styled.main`
@@ -39,6 +40,7 @@ const sections = [
 		img: '//cdn.shopify.com/s/files/1/2265/1077/files/25C4912_1280x1280.jpg?v=1558112595',
 		bg: 'var(--green)',
 		caption: 'June 2018 [reads] box curated by Molly Young and Joana Avillez',
+		reverse: false,
 	},
 	{
 		id: '2',
@@ -84,12 +86,14 @@ export default function Content() {
 					/>
 				</div>
 			</div>
+			<Brands />
 			{sections.map((el) => {
 				return (
 					<SectionInfo
 						text={el.text}
 						img={el.img}
 						bg={el.bg}
+						key={el.id}
 						caption={el.caption}
 						reverse={el.reverse}
 					/>

@@ -13,12 +13,15 @@ img {
 a {
 	color: inherit;
 }
+
 /* variables */
 :root {
+	scroll-behavior: smooth;
 	--main-font: 'Helvetica';
 	--blue: #168ed5;
 	--green: #528660;
 	--yellow: #faec90;
+	--yellow-hover: #f1e48a;
 	--white: #f7f7f7;
 	--gray: #ffffffb3;
 	--orange: #f45817;
@@ -82,4 +85,15 @@ body {
 }
 a {
 	text-decoration: none;
+}
+.input {
+	background: transparent;
+	border: 1px solid #b3b3b375;
+	border-radius: 5px;
+	padding: 10px;
+	height: 40px;
+}
+.input:focus-visible {
+	outline: none;
+	border: 2px solid var(--orange);
 }

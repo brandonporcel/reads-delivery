@@ -10,6 +10,9 @@ const ButtonStyle = styled.button`
 	color: #000;
 	text-decoration: none;
 	font-size: 18px;
+	&:hover {
+		background-color: var(--yellow-hover);
+	}
 `;
 export default function Button({ text }) {
 	return <ButtonStyle>{text}</ButtonStyle>;

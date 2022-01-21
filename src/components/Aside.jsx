@@ -7,6 +7,8 @@ const AsideTag = styled.aside`
 		height: 100vh;
 		top: 0;
 		position: sticky;
+		transform: rotate(-90deg);
+		transform-origin: 50% 51%;
 
 		/* writing-mode: vertical-rl; */
 		/* text-orientation: mixed; */

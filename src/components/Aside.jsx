@@ -7,9 +7,7 @@ const AsideTag = styled.aside`
 		height: 100vh;
 		top: 0;
 		position: sticky;
-		p {
-			cursor: default;
-		}
+
 		/* writing-mode: vertical-rl; */
 		/* text-orientation: mixed; */
 		/* left: 30px; */
@@ -22,7 +20,7 @@ export default function Aside() {
 	return (
 		<AsideTag>
 			<div className="center  aside-text-ctn">
-				<p className="hover-underline">Read More</p>
+				<p className="default-cursor hover-underline">Read More</p>
 			</div>
 		</AsideTag>
 	);

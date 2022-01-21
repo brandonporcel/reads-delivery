@@ -1,49 +1,11 @@
 import styled, { keyframes } from 'styled-components';
 import { brands } from '../images/brandsImg';
-// gAobpi{from{-webkit-transform:translateX(-100%);-ms-transform:translateX(-100%);transform:translateX(-100%);}to{-webkit-transform:translateX(0%);-ms-transform:translateX(0%);transform:translateX(0%);}}/*!
 const moving = keyframes`
-  0% {
-    transform: translateX(0px);
+ 0% {
+    transform: translateX(-500%); 
   }
-  10%{
-      transform: translateX(-150px);
-  }
-  20% {
-    transform: translateX(-250px);
-  }
-  30% {
-    transform: translateX(-350px);
-    
-  }
-  40% {
-    transform: translateX(-450px);
-    
-  }
-  50% {
-    transform: translateX(-550px);
-    
-  }
-  60% {
-    transform: translateX(-950px);
-    
-  }
-  70% {
-    transform: translateX(145px);
-    opacity: 0;
-    
-  }
-  80% {
-    transform: translateX(145px);
-    
-  }
-  90% {
-    transform: translateX(70px);
-  }
-  
   100% {
-    
-    transform: translateX(0px);
-    
+    transform: translateX(500%);
   }
 `;
 const BrandsWrapper = styled.div`
@@ -57,9 +19,8 @@ const BrandsWrapper = styled.div`
 		grid-template-columns: repeat(5, 1fr);
 		overflow: hidden;
 		a {
-			animation: ${moving} 5s linear infinite;
-			/* animation: ${moving} 0.8s linear infinite; */
-			/* animation: ${moving} 1s cubic-bezier(0.19, 1, 0.22, 1) infinite; */
+			/* animation: ${moving} 10s cubic-bezier(1, 1.12, 1, 0.89) infinite; */
+			animation: ${moving} 10s linear infinite;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -80,7 +41,7 @@ const BrandsWrapper = styled.div`
 export default function Brands() {
 	return (
 		<BrandsWrapper>
-			PRESS FOR READ
+			<p className="default-cursor">PRESS FOR READ</p>
 			<div className="brands-ctn">
 				{brands.map((el, index) => {
 					return (

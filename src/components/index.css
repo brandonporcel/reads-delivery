@@ -77,6 +77,9 @@ body {
 .hover-underline:hover {
 	text-decoration: underline;
 }
+.default-cursor {
+	cursor: default;
+}
 a {
 	text-decoration: none;
 }

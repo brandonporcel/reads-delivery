@@ -1,7 +1,8 @@
 import React from 'react';
-import Button from './Button';
-import img from '../images/book-list.jpg';
+
+import img from '../../images/book-list.jpg';
 import styled from 'styled-components';
+import Button from '../Button';
 const ProductsWrapper = styled.article`
 	border: 1px solid #00000030;
 	.product-img {

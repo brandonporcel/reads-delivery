@@ -27,6 +27,7 @@ a {
 	--orange: #f45817;
 	--brandBg: #f1e6e0;
 	--unit: 80px;
+	--section-p: 80px;
 }
 body {
 	min-height: 100vh;
@@ -42,6 +43,7 @@ body {
 
 .container {
 	display: grid;
+
 	grid-template:
 		'messaging top'
 		/* auto=row;;;;80 1fr vertical */
@@ -57,17 +59,7 @@ body {
 .bottom {
 	grid-area: bottom;
 }
-.footer {
-	grid-template-columns: 7fr 5fr;
-	padding: 130px 80px;
-	font-size: 32px;
 
-	background: #f7f4f2;
-	color: #000000b3;
-	display: grid;
-	grid-column: 1 / span 2;
-	gap: var(--gutter);
-}
 /* global */
 .center {
 	display: flex;

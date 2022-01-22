@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Cart from './Cart';
 const HeaderTag = styled.header`
 	position: sticky;
 	top: 0;
@@ -33,19 +34,32 @@ const HeaderTag = styled.header`
 
 		/* justify-content: flex-end; */
 		/* margin: 0 25px 0 0; */
+		span {
+			cursor: pointer;
+		}
 		.chart-items {
 			margin-left: 10px;
 			width: 59px;
 			height: 59px;
 			background-color: var(--yellow);
 			border-radius: 50%;
+
 			span {
 				font-size: 18px;
 			}
 		}
 	}
 `;
+
 export default function Header() {
+	const [cartOpen, setCartOpen] = useState(false);
+	const handleCart = () => {
+		if (cartOpen) {
+			setCartOpen(false);
+		} else {
+			setCartOpen(true);
+		}
+	};
 	return (
 		<HeaderTag className="header">
 			<nav className="center nav-shop-link">
@@ -57,11 +71,12 @@ export default function Header() {
 				<a href="/">[reads]</a>
 			</h1>
 			<nav className="center nav-cart">
-				<span>Cart</span>
+				<span onClick={handleCart}>Cart</span>
 				<div className="center chart-items">
 					<span>0</span>
 				</div>
 			</nav>
+			<Cart cartOpen={cartOpen} />
 		</HeaderTag>
 	);
 }

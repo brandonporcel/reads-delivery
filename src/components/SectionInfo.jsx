@@ -7,7 +7,7 @@ const Section = styled.section`
 	color: var(--gray);
 	display: grid;
 	gap: 80px;
-	padding: 80px;
+	padding: var(--section-p);
 	p {
 		font-size: 32px;
 	}

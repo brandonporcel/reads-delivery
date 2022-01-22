@@ -8,7 +8,7 @@ const moving = keyframes`
     transform: translateX(500%);
   }
 `;
-const BrandsWrapper = styled.div`
+const BrandsWrapper = styled.section`
 	background: var(--brandBg);
 	display: grid;
 	padding: 44px var(--unit);

@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import Brands from './Brands';
+import ComingProducts from './ComingProducts';
 import Hero from './Hero';
-import Products from './Products';
+import Products from './Products/Products';
+
 import SectionInfo from './SectionInfo';
-const MainTag = styled.main``;
+const MainTag = styled.main`
+	position: relative;
+	z-index: 5;
+`;
 const sections = [
 	{
 		id: '1',
@@ -40,6 +45,7 @@ export default function Content() {
 				);
 			})}
 			<Products />
+			<ComingProducts />
 		</MainTag>
 	);
 }

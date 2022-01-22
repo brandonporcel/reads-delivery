@@ -1,5 +1,6 @@
 import Button from './Button';
 import styled from 'styled-components';
+import Oferta from './Oferta';
 const HeroCtn = styled.section`
 	position: relative;
 	width: 100%;
@@ -32,6 +33,7 @@ const HeroCtn = styled.section`
 export default function Hero() {
 	return (
 		<HeroCtn className="center">
+			<Oferta />
 			<video
 				className="brand-video"
 				loop=""

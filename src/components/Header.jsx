@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import Cart from './Cart';
 const HeaderTag = styled.header`
@@ -51,15 +50,7 @@ const HeaderTag = styled.header`
 	}
 `;
 
-export default function Header() {
-	const [cartOpen, setCartOpen] = useState(false);
-	const handleCart = () => {
-		if (cartOpen) {
-			setCartOpen(false);
-		} else {
-			setCartOpen(true);
-		}
-	};
+export default function Header({ handleCart, cartOpen }) {
 	return (
 		<HeaderTag className="header">
 			<nav className="center nav-shop-link">

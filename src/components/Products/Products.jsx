@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Product from './Product';
 import ProductHeader from './ProductHeader';
@@ -62,13 +61,14 @@ const ProductsWrapper = styled.section`
 		}
 	}
 `;
-export default function Products() {
+export default function Products({ cartOpen, handleCart }) {
 	return (
 		<ProductsWrapper id="shop" className="info-section">
 			<ProductHeader />
 			<div className="products-ctn">
 				{books.map((book) => (
 					<Product
+						handleCart={handleCart}
 						key={book.id}
 						title={book.title}
 						author={book.author}

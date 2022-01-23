@@ -5,9 +5,11 @@ import Content from './components/Content';
 import './components/index.css';
 
 import { useModal } from './hooks/useModal';
+import { useState } from 'react';
 
 function App() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
+	const [cartOpen, setCartOpen] = useState(false);
 	const handlePopUpSubmit = (e, form) => {
 		e.preventDefault();
 		if (!form.name.trim() || form.name === undefined) {
@@ -17,13 +19,21 @@ function App() {
 			openModal();
 		}
 	};
+
+	const handleCart = () => {
+		if (cartOpen) {
+			setCartOpen(false);
+		} else {
+			setCartOpen(true);
+		}
+	};
 	return (
 		<>
 			<div className="container">
 				<Aside />
 				<div className="top">
-					<Header />
-					<Content />
+					<Header cartOpen={cartOpen} handleCart={handleCart} />
+					<Content handleCart={handleCart} />
 				</div>
 				<Footer
 					isOpenModal={isOpenModal}

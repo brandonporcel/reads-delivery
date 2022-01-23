@@ -4,6 +4,8 @@ import ComingProducts from './ComingProducts';
 import Hero from './Hero';
 import Products from './Products/Products';
 
+import { useSelector, useDispatch } from 'react-redux';
+
 import SectionInfo from './SectionInfo';
 const MainTag = styled.main`
 	position: relative;
@@ -28,8 +30,13 @@ const sections = [
 	},
 ];
 export default function Content({ cartOpen, handleCart }) {
+	const state = useSelector((state) => state);
+
+	const dispatch = useDispatch();
+	const { products, cart } = state.shopping;
 	return (
 		<MainTag>
+			{console.log(products)}
 			<Hero />
 			<Brands />
 			{sections.map((el) => {

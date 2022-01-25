@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Loader from '../Loader';
 import Product from './Product';
 import ProductHeader from './ProductHeader';
 const books = [
@@ -61,19 +62,16 @@ const ProductsWrapper = styled.section`
 		}
 	}
 `;
-export default function Products({
-	handleCart,
-	products,
-	handleProductToCart,
-}) {
+export default function Products({ handleCart, products, addToCart, loading }) {
 	return (
 		<ProductsWrapper id="shop" className="info-section">
 			<ProductHeader />
 			<div className="products-ctn">
+				{loading && <Loader />}
 				{products.map((product, index) => {
 					return (
 						<Product
-							handleProductToCart={handleProductToCart}
+							addToCart={addToCart}
 							handleCart={handleCart}
 							key={index}
 							id={product.id}
@@ -84,15 +82,6 @@ export default function Products({
 						/>
 					);
 				})}
-				{/* {books.map((book) => (
-					<Product
-						handleCart={handleCart}
-						key={book.id}
-						title={book.title}
-						author={book.author}
-						price={book.price}
-					/>
-				))} */}
 			</div>
 			<footer>
 				<button className="input">

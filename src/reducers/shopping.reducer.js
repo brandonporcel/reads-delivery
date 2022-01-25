@@ -3,7 +3,7 @@ import {
 	ADD_TO_CART,
 	DELETE_ONE_FROM_CART,
 	DELETE_ALL_FROM_CART,
-	CLEAR_CART,
+	BUY_CART,
 } from '../types';
 
 export const initialState = {
@@ -33,13 +33,33 @@ export function shoppingReducer(state = initialState, action) {
 				  };
 		}
 		case DELETE_ONE_FROM_CART: {
-			return false;
+			const product = state.cart.find((el) => el.id === action.payload);
+			return product.quantity > 1
+				? {
+						...state,
+						cart: state.cart.map((el) =>
+							el.id === action.payload
+								? {
+										...el,
+										quantity: el.quantity - 1,
+								  }
+								: el
+						),
+				  }
+				: {
+						...state,
+						cart: state.cart.filter((el) => el.id !== action.payload),
+				  };
 		}
 		case DELETE_ALL_FROM_CART: {
-			return true;
+			return {
+				...state,
+				cart: state.cart.filter((el) => el.id !== action.payload),
+			};
 		}
-		case CLEAR_CART: {
-			return true;
+		case BUY_CART: {
+			alert('Thanks for your order!');
+			return { ...state, cart: [] };
 		}
 		default:
 			return state;

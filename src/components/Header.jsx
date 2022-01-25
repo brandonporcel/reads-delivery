@@ -50,7 +50,14 @@ const HeaderTag = styled.header`
 	}
 `;
 
-export default function Header({ handleCart, cartOpen, cart }) {
+export default function Header({
+	handleCart,
+	cartOpen,
+	cart,
+	deleteOne,
+	deleteAllProduct,
+	buyCart,
+}) {
 	return (
 		<HeaderTag className="header">
 			<nav className="center nav-shop-link">
@@ -64,10 +71,18 @@ export default function Header({ handleCart, cartOpen, cart }) {
 			<nav className="center nav-cart">
 				<span onClick={handleCart}>Cart</span>
 				<div className="center chart-items">
-					<span>{cart.length}</span>
+					<span className="default-cursor" onClick={handleCart}>
+						{cart.length}
+					</span>
 				</div>
 			</nav>
-			<Cart cart={cart} cartOpen={cartOpen} />
+			<Cart
+				buyCart={buyCart}
+				cart={cart}
+				cartOpen={cartOpen}
+				deleteOne={deleteOne}
+				deleteAllProduct={deleteAllProduct}
+			/>
 		</HeaderTag>
 	);
 }

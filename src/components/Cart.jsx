@@ -32,6 +32,9 @@ const CartWrapper = styled.div`
 	.cart-products-ctn {
 		padding: 0 1em;
 		overflow: auto;
+		.no-products-text {
+			margin-top: 20px;
+		}
 	}
 	.buy-btn {
 		padding: 0 1em;
@@ -40,7 +43,13 @@ const CartWrapper = styled.div`
 		}
 	}
 `;
-export default function Cart({ cartOpen, cart }) {
+export default function Cart({
+	cartOpen,
+	cart,
+	deleteOne,
+	deleteAllProduct,
+	buyCart,
+}) {
 	const { promoValue } = useContext(PromoContext);
 	return (
 		<CartWrapper className={`${cartOpen && 'is-open'}`}>
@@ -48,21 +57,28 @@ export default function Cart({ cartOpen, cart }) {
 				<h3>Your Order</h3>
 			</div>
 			<div className="cart-products-ctn">
-				{cart.map((el) => {
-					return (
-						<CartProduct
-							key={el.id}
-							quantity={el.quantity}
-							title={el.title}
-							price={parseFloat(
-								el.price - (promoValue / 100) * el.price
-							).toFixed(2)}
-							image={el.image}
-						/>
-					);
-				})}
+				{cart.length === 0 ? (
+					<p className="no-products-text"> No products...</p>
+				) : (
+					cart.map((el) => {
+						return (
+							<CartProduct
+								deleteOne={deleteOne}
+								deleteAllProduct={deleteAllProduct}
+								key={el.id}
+								id={el.id}
+								quantity={el.quantity}
+								title={el.title}
+								price={parseFloat(
+									el.price - (promoValue / 100) * el.price
+								).toFixed(2)}
+								image={el.image}
+							/>
+						);
+					})
+				)}
 			</div>
-			<div className="buy-btn">
+			<div className="buy-btn" onClick={buyCart}>
 				<Button text="Buy" />
 			</div>
 		</CartWrapper>

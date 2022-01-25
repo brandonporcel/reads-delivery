@@ -70,11 +70,16 @@ const ProductsWrapper = styled.article`
 			align-items: center;
 			justify-content: space-around;
 			width: 100%;
+			p,
+			button {
+				padding: 10px;
+			}
 			button {
 				background: none;
 				border: none;
 				border-radius: 4px;
 				cursor: pointer;
+
 				padding: 10px;
 				&:hover {
 					background-color: var(--yellow);
@@ -95,7 +100,7 @@ export default function Product({
 	price,
 	image,
 	handleCart,
-	handleProductToCart,
+	addToCart,
 }) {
 	let showNotifBtn = useRef(),
 		notif = useRef();
@@ -128,7 +133,7 @@ export default function Product({
 					ref={showNotifBtn}
 					onClick={() => {
 						handleToggleNotif();
-						handleProductToCart(id);
+						addToCart(id);
 					}}
 				>
 					<Button text="Add to Cart" />

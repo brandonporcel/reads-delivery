@@ -34,7 +34,15 @@ const CartProductWrapper = styled.article`
 		}
 	}
 `;
-export default function CartProduct({ title, price, image, quantity }) {
+export default function CartProduct({
+	id,
+	title,
+	price,
+	image,
+	quantity,
+	deleteOne,
+	deleteAllProduct,
+}) {
 	return (
 		<CartProductWrapper>
 			<div className="cart-product-img-ctn">
@@ -44,11 +52,12 @@ export default function CartProduct({ title, price, image, quantity }) {
 				<h4>{title}</h4>
 				<div className="cart-product-details">
 					<p>
-						${price} x {quantity} <strong>${price * quantity}</strong>
+						${price} x {quantity}{' '}
+						<strong>${parseFloat(price * quantity).toFixed(2)}</strong>
 					</p>
 					<div>
-						<button>-1</button>
-						<button>del</button>
+						<button onClick={() => deleteOne(id)}>-1</button>
+						<button onClick={() => deleteAllProduct(id, true)}>del</button>
 					</div>
 				</div>
 			</div>

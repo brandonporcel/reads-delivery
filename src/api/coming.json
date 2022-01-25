@@ -1,0 +1,10 @@
+[
+	{
+		"id": 1,
+		"title": "May 2018",
+		"description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, minima?",
+		"image": "http://localhost:3000/static/media/book-list.a8571fd1c04dce594da0.jpg",
+		"tags": ["literature,hip hop"]
+	},
+	{}
+]

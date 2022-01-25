@@ -7,10 +7,6 @@ import {
 } from '../types';
 
 export const initialState = {
-	// products: [
-	// 	{ id: 1, name: 'Producto 1', price: 100 },
-	// 	{ id: 2, name: 'Producto 2', price: 200 },
-	// ],
 	products: [],
 	cart: [],
 };
@@ -20,7 +16,21 @@ export function shoppingReducer(state = initialState, action) {
 			return { ...state, products: action.payload.map((product) => product) };
 		}
 		case ADD_TO_CART: {
-			return true;
+			const newItem = state.products.find((el) => el.id === action.payload);
+
+			const itemInCart = state.cart.find((el) => el.id === newItem.id);
+
+			return itemInCart
+				? {
+						...state,
+						cart: state.cart.map((el) =>
+							el.id === newItem.id ? { ...el, quantity: el.quantity + 1 } : el
+						),
+				  }
+				: {
+						...state,
+						cart: [...state.cart, { ...newItem, quantity: 1 }],
+				  };
 		}
 		case DELETE_ONE_FROM_CART: {
 			return false;

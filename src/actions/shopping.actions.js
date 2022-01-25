@@ -13,7 +13,7 @@ export const readProducts = (data) => {
 		payload: data,
 	};
 };
-export const addToCart = async (id) => {
+export const addToCart = (id) => {
 	return {
 		type: ADD_TO_CART,
 		payload: id,

@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
+import PromoContext from '../context/PromoContext';
 import Button from './Button';
+import CartProduct from './CartProduct';
 const CartWrapper = styled.div`
 	position: fixed;
 	transform: translateX(500px);
@@ -29,37 +32,6 @@ const CartWrapper = styled.div`
 	.cart-products-ctn {
 		padding: 0 1em;
 		overflow: auto;
-		.cart-product {
-			display: grid;
-			grid-template-columns: 50px 185px;
-			gap: 10px;
-			overflow: hidden;
-			margin: 20px 0;
-			.cart-product-img-ctn {
-				/* width: 50px;
-				height: 50px; */
-				border: 1px solid #00000075;
-			}
-			.cart-product-body {
-				width: 185px;
-				display: grid;
-				gap: 10px;
-				h4 {
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					overflow: hidden;
-				}
-				.cart-product-details {
-					display: flex;
-					justify-content: space-between;
-
-					button {
-						padding: 2px 5px;
-						margin-left: 5px;
-					}
-				}
-			}
-		}
 	}
 	.buy-btn {
 		padding: 0 1em;
@@ -68,64 +40,27 @@ const CartWrapper = styled.div`
 		}
 	}
 `;
-export default function Cart({ cartOpen }) {
+export default function Cart({ cartOpen, cart }) {
+	const { promoValue } = useContext(PromoContext);
 	return (
 		<CartWrapper className={`${cartOpen && 'is-open'}`}>
 			<div className="title">
 				<h3>Your Order</h3>
 			</div>
 			<div className="cart-products-ctn">
-				<article className="cart-product">
-					<div className="cart-product-img-ctn">
-						<img src="" alt="" />
-					</div>
-					<div className="cart-product-body">
-						<h4>Looking For Alaska, John Green</h4>
-						<div className="cart-product-details">
-							<p>
-								$125 x 4 <strong>$500</strong>
-							</p>
-							<div>
-								<button>-1</button>
-								<button>del</button>
-							</div>
-						</div>
-					</div>
-				</article>
-				<article className="cart-product">
-					<div className="cart-product-img-ctn">
-						<img src="" alt="" />
-					</div>
-					<div className="cart-product-body">
-						<h4>Looking For Alaska, John Green</h4>
-						<div className="cart-product-details">
-							<p>
-								$125 x 4 <strong>$500</strong>
-							</p>
-							<div>
-								<button>-1</button>
-								<button>del</button>
-							</div>
-						</div>
-					</div>
-				</article>
-				<article className="cart-product">
-					<div className="cart-product-img-ctn">
-						<img src="" alt="" />
-					</div>
-					<div className="cart-product-body">
-						<h4>Looking For Alaska, John Green</h4>
-						<div className="cart-product-details">
-							<p>
-								$125 x 4 <strong>$500</strong>
-							</p>
-							<div>
-								<button>-1</button>
-								<button>del</button>
-							</div>
-						</div>
-					</div>
-				</article>
+				{cart.map((el) => {
+					return (
+						<CartProduct
+							key={el.id}
+							quantity={el.quantity}
+							title={el.title}
+							price={parseFloat(
+								el.price - (promoValue / 100) * el.price
+							).toFixed(2)}
+							image={el.image}
+						/>
+					);
+				})}
 			</div>
 			<div className="buy-btn">
 				<Button text="Buy" />

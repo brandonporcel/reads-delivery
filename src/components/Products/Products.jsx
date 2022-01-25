@@ -61,7 +61,11 @@ const ProductsWrapper = styled.section`
 		}
 	}
 `;
-export default function Products({ cartOpen, handleCart, products }) {
+export default function Products({
+	handleCart,
+	products,
+	handleProductToCart,
+}) {
 	return (
 		<ProductsWrapper id="shop" className="info-section">
 			<ProductHeader />
@@ -69,12 +73,14 @@ export default function Products({ cartOpen, handleCart, products }) {
 				{products.map((product, index) => {
 					return (
 						<Product
+							handleProductToCart={handleProductToCart}
 							handleCart={handleCart}
 							key={index}
-							title={'Cien años de Soledad'}
-							author={'Gabriel Garcia Marquez'}
-							price={15}
-							image={product.hex}
+							id={product.id}
+							title={product.title}
+							author={product.category}
+							price={product.price}
+							image={product.image}
 						/>
 					);
 				})}

@@ -4,12 +4,8 @@ import ComingProducts from './ComingProducts';
 import Hero from './Hero';
 import Products from './Products/Products';
 
-import { useSelector, useDispatch } from 'react-redux';
-
 import SectionInfo from './SectionInfo';
-import { useEffect } from 'react';
-import { READ_PRODUCTS } from '../types';
-import { readProducts } from '../actions/shopping.actions';
+
 const MainTag = styled.main`
 	position: relative;
 	z-index: 5;
@@ -32,26 +28,7 @@ const sections = [
 		reverse: true,
 	},
 ];
-export default function Content({ cartOpen, handleCart }) {
-	const state = useSelector((state) => state);
-
-	const dispatch = useDispatch();
-	const { products, cart } = state.shopping;
-
-	useEffect(() => {
-		const handleApi = async (endpoint) => {
-			try {
-				const res = await fetch(endpoint);
-				const data = await res.json();
-				// console.log(data);
-				dispatch(readProducts(data));
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		handleApi('https://x-colors.herokuapp.com/api/random?number=60');
-	}, [dispatch]);
-
+export default function Content({ handleCart, products, handleProductToCart }) {
 	return (
 		<MainTag>
 			<Hero />
@@ -69,7 +46,11 @@ export default function Content({ cartOpen, handleCart }) {
 				);
 			})}
 
-			<Products products={products} handleCart={handleCart} />
+			<Products
+				handleProductToCart={handleProductToCart}
+				products={products}
+				handleCart={handleCart}
+			/>
 			<ComingProducts />
 		</MainTag>
 	);

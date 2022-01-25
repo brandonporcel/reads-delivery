@@ -1,6 +1,9 @@
 import Button from './Button';
 import styled from 'styled-components';
 import Oferta from './Oferta';
+import { useContext } from 'react';
+import PromoContext from '../context/PromoContext';
+
 const HeroCtn = styled.section`
 	position: relative;
 	width: 100%;
@@ -31,9 +34,10 @@ const HeroCtn = styled.section`
 	}
 `;
 export default function Hero() {
+	const { promo } = useContext(PromoContext);
 	return (
 		<HeroCtn className="center">
-			<Oferta />
+			{promo && <Oferta />}
 			<video
 				className="brand-video"
 				loop=""

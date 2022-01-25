@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 
-import img from '../../images/book-list.jpg';
 import styled, { keyframes } from 'styled-components';
 import Button from '../Button';
+
+import PromoContext from '../../context/PromoContext.js';
+
 const notifHide = keyframes`
 	0%   {opacity: 1;}
     90%  {opacity: 1;}
@@ -30,6 +32,10 @@ const ProductsWrapper = styled.article`
 		p,
 		span {
 			padding-top: 2px;
+		}
+		p {
+			height: 40px;
+			overflow: hidden;
 		}
 	}
 	span {
@@ -82,17 +88,27 @@ const ProductsWrapper = styled.article`
 		}
 	}
 `;
-export default function Product({ title, author, price, image, handleCart }) {
+export default function Product({
+	id,
+	title,
+	author,
+	price,
+	image,
+	handleCart,
+	handleProductToCart,
+}) {
 	let showNotifBtn = useRef(),
 		notif = useRef();
 	const handleToggleNotif = () => {
 		notif.current.style.display = 'flex';
 		notif.current.style.visibility = 'visible';
 	};
+	const { promoValue } = useContext(PromoContext);
+
 	return (
 		<ProductsWrapper>
-			<div className="product-img" style={{ background: `${image}` }}>
-				{/* <img src={img} alt="" /> */}
+			<div className="product-img">
+				<img src={image} alt="" />
 			</div>
 			<div className="product-body">
 				<p>
@@ -100,12 +116,21 @@ export default function Product({ title, author, price, image, handleCart }) {
 				</p>
 				<p>{author}</p>
 				<div className="price">
-					<span className="old-price">${price * 1.5}</span>
+					<span className="old-price">${price}</span>
 					<span>
-						<strong>${price}</strong>
+						<strong>
+							${parseFloat(price - (promoValue / 100) * price).toFixed(2)}
+						</strong>
 					</span>
 				</div>
-				<div ref={showNotifBtn} onClick={handleToggleNotif}>
+
+				<div
+					ref={showNotifBtn}
+					onClick={() => {
+						handleToggleNotif();
+						handleProductToCart(id);
+					}}
+				>
 					<Button text="Add to Cart" />
 				</div>
 				<div

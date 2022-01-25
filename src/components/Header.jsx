@@ -50,7 +50,7 @@ const HeaderTag = styled.header`
 	}
 `;
 
-export default function Header({ handleCart, cartOpen }) {
+export default function Header({ handleCart, cartOpen, cart }) {
 	return (
 		<HeaderTag className="header">
 			<nav className="center nav-shop-link">
@@ -64,10 +64,10 @@ export default function Header({ handleCart, cartOpen }) {
 			<nav className="center nav-cart">
 				<span onClick={handleCart}>Cart</span>
 				<div className="center chart-items">
-					<span>0</span>
+					<span>{cart.length}</span>
 				</div>
 			</nav>
-			<Cart cartOpen={cartOpen} />
+			<Cart cart={cart} cartOpen={cartOpen} />
 		</HeaderTag>
 	);
 }

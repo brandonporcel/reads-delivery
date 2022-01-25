@@ -11,12 +11,14 @@ import {
 	deleteFromCart,
 	readProducts,
 	buyCart,
+	filterProducts,
 } from '../actions/shopping.actions';
 export default function Home() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
 
 	const [cartOpen, setCartOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [searcherInput, setSearcherInput] = useState([]);
 	const handlePopUpSubmit = (e, form, setForm) => {
 		e.preventDefault();
 		if (!form.name.trim() || form.name === undefined) {
@@ -46,6 +48,7 @@ export default function Home() {
 				setLoading(true);
 				const res = await fetch(endpoint);
 				const data = await res.json();
+				setSearcherInput(data);
 				dispatch(readProducts(data));
 				setLoading(false);
 			} catch (err) {
@@ -69,6 +72,7 @@ export default function Home() {
 					handleCart={handleCart}
 				/>
 				<Content
+					searcher={(word) => dispatch(filterProducts(word, searcherInput))}
 					loading={loading}
 					addToCart={(id) => dispatch(addToCart(id))}
 					products={products}

@@ -4,6 +4,7 @@ import {
 	DELETE_ONE_FROM_CART,
 	DELETE_ALL_FROM_CART,
 	BUY_CART,
+	FILTER,
 } from '../types';
 
 export const initialState = {
@@ -60,6 +61,16 @@ export function shoppingReducer(state = initialState, action) {
 		case BUY_CART: {
 			alert('Thanks for your order!');
 			return { ...state, cart: [] };
+		}
+		case FILTER: {
+			const searchResults = action.payload.productsDoble.filter(
+				(elemento) =>
+					elemento.title
+						.toLowerCase()
+						.includes(action.payload.word.toLowerCase()) && elemento
+			);
+
+			return { ...state, products: [...searchResults] };
 		}
 		default:
 			return state;

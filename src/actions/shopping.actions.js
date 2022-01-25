@@ -4,6 +4,7 @@ import {
 	DELETE_ONE_FROM_CART,
 	DELETE_ALL_FROM_CART,
 	BUY_CART,
+	FILTER,
 } from '../types';
 
 export const readProducts = (data) => {
@@ -25,4 +26,7 @@ export const deleteFromCart = (id, all = false) =>
 
 export const buyCart = () => {
 	return { type: BUY_CART };
+};
+export const filterProducts = (word, productsDoble) => {
+	return { type: FILTER, payload: { word, productsDoble } };
 };

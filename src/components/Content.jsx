@@ -28,7 +28,13 @@ const sections = [
 		reverse: true,
 	},
 ];
-export default function Content({ handleCart, products, addToCart, loading }) {
+export default function Content({
+	handleCart,
+	products,
+	addToCart,
+	loading,
+	searcher,
+}) {
 	return (
 		<MainTag>
 			<Hero />
@@ -47,6 +53,7 @@ export default function Content({ handleCart, products, addToCart, loading }) {
 			})}
 
 			<Products
+				searcher={searcher}
 				loading={loading}
 				addToCart={addToCart}
 				products={products}

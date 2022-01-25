@@ -23,13 +23,18 @@ const Header = styled.header`
 		}
 	}
 `;
-export default function ProductHeader() {
+export default function ProductHeader({ searcher }) {
 	return (
 		<Header>
 			<h3>Shop</h3>
 			<div className="custom-products">
 				<div className="searcher">
-					<input type="text" placeholder="Search by word" className="input" />
+					<input
+						type="text"
+						placeholder="Search by word"
+						onChange={(e) => searcher(e.target.value)}
+						className="input"
+					/>
 				</div>
 				<select name="" id="" className="input">
 					<option value="">Custom Order</option>

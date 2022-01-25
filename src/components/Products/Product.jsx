@@ -82,13 +82,7 @@ const ProductsWrapper = styled.article`
 		}
 	}
 `;
-export default function Product({
-	title,
-	author,
-	price,
-
-	handleCart,
-}) {
+export default function Product({ title, author, price, image, handleCart }) {
 	let showNotifBtn = useRef(),
 		notif = useRef();
 	const handleToggleNotif = () => {
@@ -97,8 +91,8 @@ export default function Product({
 	};
 	return (
 		<ProductsWrapper>
-			<div className="product-img">
-				<img src={img} alt="" />
+			<div className="product-img" style={{ background: `${image}` }}>
+				{/* <img src={img} alt="" /> */}
 			</div>
 			<div className="product-body">
 				<p>

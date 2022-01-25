@@ -1,4 +1,5 @@
 import {
+	READ_PRODUCTS,
 	ADD_TO_CART,
 	DELETE_ONE_FROM_CART,
 	DELETE_ALL_FROM_CART,
@@ -6,7 +7,13 @@ import {
 	BUY_CART,
 } from '../types';
 
-export const addToCart = (id) => {
+export const readProducts = (data) => {
+	return {
+		type: READ_PRODUCTS,
+		payload: data,
+	};
+};
+export const addToCart = async (id) => {
 	return {
 		type: ADD_TO_CART,
 		payload: id,

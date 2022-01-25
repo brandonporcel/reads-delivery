@@ -7,6 +7,9 @@ import Products from './Products/Products';
 import { useSelector, useDispatch } from 'react-redux';
 
 import SectionInfo from './SectionInfo';
+import { useEffect } from 'react';
+import { READ_PRODUCTS } from '../types';
+import { readProducts } from '../actions/shopping.actions';
 const MainTag = styled.main`
 	position: relative;
 	z-index: 5;
@@ -34,9 +37,23 @@ export default function Content({ cartOpen, handleCart }) {
 
 	const dispatch = useDispatch();
 	const { products, cart } = state.shopping;
+
+	useEffect(() => {
+		const handleApi = async (endpoint) => {
+			try {
+				const res = await fetch(endpoint);
+				const data = await res.json();
+				// console.log(data);
+				dispatch(readProducts(data));
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		handleApi('https://x-colors.herokuapp.com/api/random?number=60');
+	}, [dispatch]);
+
 	return (
 		<MainTag>
-			{console.log(products)}
 			<Hero />
 			<Brands />
 			{sections.map((el) => {
@@ -51,7 +68,8 @@ export default function Content({ cartOpen, handleCart }) {
 					/>
 				);
 			})}
-			<Products handleCart={handleCart} />
+
+			<Products products={products} handleCart={handleCart} />
 			<ComingProducts />
 		</MainTag>
 	);

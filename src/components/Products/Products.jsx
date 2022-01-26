@@ -44,10 +44,11 @@ export default function Products({
 	addToCart,
 	loading,
 	searcher,
+	paginationDobleProducts,
 }) {
 	return (
 		<ProductsWrapper id="shop" className="info-section">
-			<ProductHeader products={products} searcher={searcher} />
+			<ProductHeader searcher={searcher} />
 			<div className="products-ctn">
 				{loading && <Loader />}
 				{products.map((product, index) => {
@@ -65,7 +66,7 @@ export default function Products({
 					);
 				})}
 			</div>
-			<ProductPagination />
+			<ProductPagination paginationDobleProducts={paginationDobleProducts} />
 		</ProductsWrapper>
 	);
 }

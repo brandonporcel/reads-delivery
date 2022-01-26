@@ -10,9 +10,6 @@ const CartProductWrapper = styled.article`
 		/* width: 50px;
 		height: 50px; */
 		border: 1px solid #00000075;
-		img {
-			height: 50px;
-		}
 	}
 	.cart-product-body {
 		width: 185px;

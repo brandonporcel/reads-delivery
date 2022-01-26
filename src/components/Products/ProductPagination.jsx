@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ProductPagination() {
+export default function ProductPagination({ paginationDobleProducts }) {
 	return (
 		<footer>
 			<button className="input">
@@ -15,7 +15,7 @@ export default function ProductPagination() {
 				</svg>
 			</button>
 			<input type="text" placeholder="1" className="input" />
-			<button className="input">
+			<button className="input" onClick={paginationDobleProducts}>
 				<svg viewBox="0 0 108.9 51.2">
 					<path
 						fill="none"

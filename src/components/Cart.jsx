@@ -28,6 +28,7 @@ const CartWrapper = styled.div`
 	.title {
 		border-bottom: 1px solid #00000075;
 		padding: 1em;
+		height: min-content;
 	}
 	.cart-products-ctn {
 		padding: 0 1em;

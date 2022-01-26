@@ -5,12 +5,13 @@ import {
 	DELETE_ALL_FROM_CART,
 	BUY_CART,
 	FILTER,
+	NEXT_PAGINATION,
 } from '../types';
 
-export const readProducts = (data) => {
+export const readProducts = (data, searcherInput) => {
 	return {
 		type: READ_PRODUCTS,
-		payload: data,
+		payload: { data, searcherInput },
 	};
 };
 export const addToCart = (id) => {
@@ -29,4 +30,8 @@ export const buyCart = () => {
 };
 export const filterProducts = (word, productsDoble) => {
 	return { type: FILTER, payload: { word, productsDoble } };
+};
+
+export const nextPagination = (productsDoble, contador) => {
+	return { type: NEXT_PAGINATION, payload: { productsDoble, contador } };
 };

@@ -12,10 +12,12 @@ import {
 	readProducts,
 	buyCart,
 	filterProducts,
+	nextPagination,
 } from '../actions/shopping.actions';
 export default function Home() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
-
+	// paginacion
+	const [contador, setContador] = useState(1);
 	const [cartOpen, setCartOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [searcherInput, setSearcherInput] = useState([]);
@@ -41,7 +43,7 @@ export default function Home() {
 	const dispatch = useDispatch();
 	const { products, cart } = state.shopping;
 
-	const endpoint = 'https://fakestoreapi.com/products?limit=6';
+	const endpoint = 'https://fakestoreapi.com/products?limit=20';
 	useEffect(() => {
 		const handleApi = async (endpoint) => {
 			try {
@@ -58,7 +60,10 @@ export default function Home() {
 		handleApi(endpoint);
 	}, [dispatch]);
 	// -----
-
+	const nextPage = () => {
+		contador === 5 ? setContador(1) : setContador(contador + 1);
+		dispatch(nextPagination(searcherInput, contador));
+	};
 	return (
 		<div className="container">
 			<Aside />
@@ -73,6 +78,7 @@ export default function Home() {
 				/>
 				<Content
 					searcher={(word) => dispatch(filterProducts(word, searcherInput))}
+					paginationDobleProducts={nextPage}
 					loading={loading}
 					addToCart={(id) => dispatch(addToCart(id))}
 					products={products}

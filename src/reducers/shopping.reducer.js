@@ -5,6 +5,7 @@ import {
 	DELETE_ALL_FROM_CART,
 	BUY_CART,
 	FILTER,
+	NEXT_PAGINATION,
 } from '../types';
 
 export const initialState = {
@@ -12,9 +13,17 @@ export const initialState = {
 	cart: [],
 };
 export function shoppingReducer(state = initialState, action) {
+	let productsDoblee = [];
+	let itempsPerPage = 4;
 	switch (action.type) {
 		case READ_PRODUCTS: {
-			return { ...state, products: action.payload.map((product) => product) };
+			const productsFromApi = action.payload.data.map((product) => product);
+			productsDoblee = [...productsFromApi].splice(0, itempsPerPage);
+
+			return {
+				...state,
+				products: productsDoblee,
+			};
 		}
 		case ADD_TO_CART: {
 			const newItem = state.products.find((el) => el.id === action.payload);
@@ -71,6 +80,39 @@ export function shoppingReducer(state = initialState, action) {
 			);
 
 			return { ...state, products: [...searchResults] };
+		}
+		case NEXT_PAGINATION: {
+			// if (action.payload.contador === 20) action.payload.contador = 1;
+			const firstIndex =
+				action.payload.contador === 5
+					? (action.payload.contador = 0)
+					: action.payload.contador * itempsPerPage;
+
+			const a = [...action.payload.productsDoble].splice(
+				firstIndex,
+				itempsPerPage
+			);
+			console.log(
+				action.payload.contador,
+				action.payload.productsDoble.length,
+				action.payload.contador
+			);
+
+			// return {
+			// 	...state,
+			// 	products: [...action.payload.productsDoble].splice(16, 20),
+			// };
+
+			return { ...state, products: a };
+
+			// if (firstIndex === 16) {
+			// 	return {
+			// 		...state,
+			// 		products: [...action.payload.productsDoble].splice(16, itempsPerPage),
+			// 	};
+			// }
+			// // console.log(firstIndex, state, { ...state });
+			// return { ...state, products: a };
 		}
 		default:
 			return state;

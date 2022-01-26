@@ -67,7 +67,8 @@ export default function Home() {
 		dispatch(nextPagination(searcherInput, contador));
 	};
 	const prevPage = () => {
-		contador === -1 ? setContador(1) : setContador(contador - 1);
+		contador === -1 ? setContador(5) : setContador(contador - 1);
+		// contador <= 0 ? setContador(5) : setContador(contador - 1);
 		dispatch(previousPagination(searcherInput, contador));
 	};
 	return (

@@ -96,15 +96,18 @@ export function shoppingReducer(state = initialState, action) {
 		}
 		case PREV_PAGINATION: {
 			let prevPage = action.payload.prevContador - 2;
+
 			const indexFrom =
 				action.payload.contador === -1
-					? (prevPage = 1)
+					? (prevPage = 5)
 					: prevPage * itempsPerPage;
+
+			// const indexFrom = action.payload.prevContador * itempsPerPage;
 			const productsToShow = [...action.payload.productsDoble].splice(
 				indexFrom,
 				itempsPerPage
 			);
-			console.log('prev', prevPage, indexFrom);
+			// console.log('prev', action.payload.prevContador, prevPage, indexFrom);
 
 			return { ...state, products: productsToShow };
 		}

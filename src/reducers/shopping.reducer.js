@@ -6,6 +6,7 @@ import {
 	BUY_CART,
 	FILTER,
 	NEXT_PAGINATION,
+	PREV_PAGINATION,
 } from '../types';
 
 export const initialState = {
@@ -82,37 +83,30 @@ export function shoppingReducer(state = initialState, action) {
 			return { ...state, products: [...searchResults] };
 		}
 		case NEXT_PAGINATION: {
-			// if (action.payload.contador === 20) action.payload.contador = 1;
-			const firstIndex =
+			const index =
 				action.payload.contador === 5
 					? (action.payload.contador = 0)
 					: action.payload.contador * itempsPerPage;
-
-			const a = [...action.payload.productsDoble].splice(
-				firstIndex,
+			console.log('next', action.payload.contador, index);
+			const productsShow = [...action.payload.productsDoble].splice(
+				index,
 				itempsPerPage
 			);
-			console.log(
-				action.payload.contador,
-				action.payload.productsDoble.length,
-				action.payload.contador
+			return { ...state, products: productsShow };
+		}
+		case PREV_PAGINATION: {
+			let prevPage = action.payload.prevContador - 2;
+			const indexFrom =
+				action.payload.contador === -1
+					? (prevPage = 1)
+					: prevPage * itempsPerPage;
+			const productsToShow = [...action.payload.productsDoble].splice(
+				indexFrom,
+				itempsPerPage
 			);
+			console.log('prev', prevPage, indexFrom);
 
-			// return {
-			// 	...state,
-			// 	products: [...action.payload.productsDoble].splice(16, 20),
-			// };
-
-			return { ...state, products: a };
-
-			// if (firstIndex === 16) {
-			// 	return {
-			// 		...state,
-			// 		products: [...action.payload.productsDoble].splice(16, itempsPerPage),
-			// 	};
-			// }
-			// // console.log(firstIndex, state, { ...state });
-			// return { ...state, products: a };
+			return { ...state, products: productsToShow };
 		}
 		default:
 			return state;

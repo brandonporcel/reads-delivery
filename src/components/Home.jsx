@@ -13,11 +13,13 @@ import {
 	buyCart,
 	filterProducts,
 	nextPagination,
+	previousPagination,
 } from '../actions/shopping.actions';
 export default function Home() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
 	// paginacion
 	const [contador, setContador] = useState(1);
+	const [prevContador, setPrevContador] = useState(contador);
 	const [cartOpen, setCartOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [searcherInput, setSearcherInput] = useState([]);
@@ -64,6 +66,10 @@ export default function Home() {
 		contador === 5 ? setContador(1) : setContador(contador + 1);
 		dispatch(nextPagination(searcherInput, contador));
 	};
+	const prevPage = () => {
+		contador === -1 ? setContador(1) : setContador(contador - 1);
+		dispatch(previousPagination(searcherInput, contador));
+	};
 	return (
 		<div className="container">
 			<Aside />
@@ -78,7 +84,9 @@ export default function Home() {
 				/>
 				<Content
 					searcher={(word) => dispatch(filterProducts(word, searcherInput))}
+					// pagination
 					paginationDobleProducts={nextPage}
+					prevPage={prevPage}
 					loading={loading}
 					addToCart={(id) => dispatch(addToCart(id))}
 					products={products}

@@ -45,6 +45,7 @@ export default function Products({
 	loading,
 	searcher,
 	paginationDobleProducts,
+	prevPage,
 }) {
 	return (
 		<ProductsWrapper id="shop" className="info-section">
@@ -66,7 +67,10 @@ export default function Products({
 					);
 				})}
 			</div>
-			<ProductPagination paginationDobleProducts={paginationDobleProducts} />
+			<ProductPagination
+				prevPage={prevPage}
+				paginationDobleProducts={paginationDobleProducts}
+			/>
 		</ProductsWrapper>
 	);
 }

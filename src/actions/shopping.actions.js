@@ -6,6 +6,7 @@ import {
 	BUY_CART,
 	FILTER,
 	NEXT_PAGINATION,
+	PREV_PAGINATION,
 } from '../types';
 
 export const readProducts = (data, searcherInput) => {
@@ -34,4 +35,7 @@ export const filterProducts = (word, productsDoble) => {
 
 export const nextPagination = (productsDoble, contador) => {
 	return { type: NEXT_PAGINATION, payload: { productsDoble, contador } };
+};
+export const previousPagination = (productsDoble, prevContador) => {
+	return { type: PREV_PAGINATION, payload: { productsDoble, prevContador } };
 };

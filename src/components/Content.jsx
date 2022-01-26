@@ -35,6 +35,7 @@ export default function Content({
 	loading,
 	searcher,
 	paginationDobleProducts,
+	prevPage,
 }) {
 	return (
 		<MainTag>
@@ -57,6 +58,7 @@ export default function Content({
 				searcher={searcher}
 				// paginacion
 				paginationDobleProducts={paginationDobleProducts}
+				prevPage={prevPage}
 				loading={loading}
 				addToCart={addToCart}
 				products={products}

@@ -6,3 +6,4 @@ export const DELETE_ALL_FROM_CART = 'DELETE_ALL_FROM_CART';
 export const BUY_CART = 'BUY_CART';
 export const FILTER = 'FILTER';
 export const NEXT_PAGINATION = 'NEXT_PAGINATION';
+export const PREV_PAGINATION = 'PREV_PAGINATION';

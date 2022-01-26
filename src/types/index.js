@@ -7,3 +7,5 @@ export const BUY_CART = 'BUY_CART';
 export const FILTER = 'FILTER';
 export const NEXT_PAGINATION = 'NEXT_PAGINATION';
 export const PREV_PAGINATION = 'PREV_PAGINATION';
+export const SORT_PRICE = 'SORT_PRICE';
+export const SORT_ALPHA = 'SORT_ALPHA';

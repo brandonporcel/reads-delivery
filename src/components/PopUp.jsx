@@ -39,7 +39,6 @@ export default function PopUp({ children, isOpen, closeModal }) {
 
 	return (
 		<PopUpWrapper className={`${isOpen && 'is-open'}`} onClick={closeModal}>
-			sad
 			<div className="modal-container" onClick={handleModalContainerClick}>
 				<div className="modal-close">
 					<button className="input" onClick={closeModal}>

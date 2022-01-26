@@ -7,6 +7,8 @@ import {
 	FILTER,
 	NEXT_PAGINATION,
 	PREV_PAGINATION,
+	SORT_PRICE,
+	SORT_ALPHA,
 } from '../types';
 
 export const initialState = {
@@ -73,11 +75,11 @@ export function shoppingReducer(state = initialState, action) {
 			return { ...state, cart: [] };
 		}
 		case FILTER: {
+			const termToFind = action.payload.word.toLowerCase();
+
 			const searchResults = action.payload.productsDoble.filter(
 				(elemento) =>
-					elemento.title
-						.toLowerCase()
-						.includes(action.payload.word.toLowerCase()) && elemento
+					elemento.title.toLowerCase().includes(termToFind) && elemento
 			);
 
 			return { ...state, products: [...searchResults] };
@@ -110,6 +112,29 @@ export function shoppingReducer(state = initialState, action) {
 			// console.log('prev', action.payload.prevContador, prevPage, indexFrom);
 
 			return { ...state, products: productsToShow };
+		}
+		case SORT_ALPHA: {
+			const productsDobleALpha = action.payload.productsDoble;
+
+			// const valueSort = action.payload.value;
+
+			const sortAlpha = productsDobleALpha.sort((a, b) => {
+				return a.title.localeCompare(b.title);
+			});
+
+			return { ...state, products: sortAlpha };
+		}
+		case SORT_PRICE: {
+			const productsDoblePrice = action.payload.productsDoble;
+			// const valueSort = action.payload.value;
+
+			const sortPrice = productsDoblePrice.sort((a, b) => {
+				if (a.price > b.price) return -1;
+				if (b.price > a.price) return 1;
+				return 0;
+			});
+
+			return { ...state, products: sortPrice };
 		}
 		default:
 			return state;

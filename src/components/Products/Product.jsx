@@ -124,7 +124,12 @@ export default function Product({
 					<span className="old-price">${price}</span>
 					<span>
 						<strong>
-							${parseFloat(price - (promoValue / 100) * price).toFixed(2)}
+							{new Intl.NumberFormat('es-AR', {
+								style: 'currency',
+								currency: 'ARS',
+							}).format(
+								parseFloat(price - (promoValue / 100) * price).toFixed(2)
+							)}
 						</strong>
 					</span>
 				</div>

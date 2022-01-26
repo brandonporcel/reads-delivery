@@ -46,10 +46,14 @@ export default function Products({
 	searcher,
 	paginationDobleProducts,
 	prevPage,
+	sortAlphabeticalPrice,
 }) {
 	return (
 		<ProductsWrapper id="shop" className="info-section">
-			<ProductHeader searcher={searcher} />
+			<ProductHeader
+				searcher={searcher}
+				sortAlphabeticalPrice={sortAlphabeticalPrice}
+			/>
 			<div className="products-ctn">
 				{loading && <Loader />}
 				{products.map((product, index) => {

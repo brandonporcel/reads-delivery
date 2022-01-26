@@ -14,12 +14,15 @@ import {
 	filterProducts,
 	nextPagination,
 	previousPagination,
+	sortAlphabetical,
+	sortPrice,
 } from '../actions/shopping.actions';
 export default function Home() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
 	// paginacion
 	const [contador, setContador] = useState(1);
 	const [prevContador, setPrevContador] = useState(contador);
+
 	const [cartOpen, setCartOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [searcherInput, setSearcherInput] = useState([]);
@@ -71,6 +74,15 @@ export default function Home() {
 		// contador <= 0 ? setContador(5) : setContador(contador - 1);
 		dispatch(previousPagination(searcherInput, contador));
 	};
+	//
+	const filterProductss = (word) => {
+		const term = word.trim();
+		if (!term.trim()) {
+			dispatch(readProducts(searcherInput));
+		} else {
+			dispatch(filterProducts(term, searcherInput));
+		}
+	};
 	return (
 		<div className="container">
 			<Aside />
@@ -84,10 +96,16 @@ export default function Home() {
 					handleCart={handleCart}
 				/>
 				<Content
-					searcher={(word) => dispatch(filterProducts(word, searcherInput))}
+					searcher={filterProductss}
 					// pagination
 					paginationDobleProducts={nextPage}
 					prevPage={prevPage}
+					// filtro sort
+					sortAlphabeticalPrice={(value) =>
+						value === 'name'
+							? dispatch(sortAlphabetical(searcherInput, value))
+							: dispatch(sortPrice(searcherInput, value))
+					}
 					loading={loading}
 					addToCart={(id) => dispatch(addToCart(id))}
 					products={products}

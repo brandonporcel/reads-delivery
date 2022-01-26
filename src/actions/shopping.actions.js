@@ -7,6 +7,8 @@ import {
 	FILTER,
 	NEXT_PAGINATION,
 	PREV_PAGINATION,
+	SORT_PRICE,
+	SORT_ALPHA,
 } from '../types';
 
 export const readProducts = (data, searcherInput) => {
@@ -38,4 +40,10 @@ export const nextPagination = (productsDoble, contador) => {
 };
 export const previousPagination = (productsDoble, prevContador) => {
 	return { type: PREV_PAGINATION, payload: { productsDoble, prevContador } };
+};
+export const sortPrice = (productsDoble, value) => {
+	return { type: SORT_PRICE, payload: { productsDoble, value } };
+};
+export const sortAlphabetical = (productsDoble, value) => {
+	return { type: SORT_ALPHA, payload: { productsDoble, value } };
 };

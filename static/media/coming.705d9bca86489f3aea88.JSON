@@ -1,0 +1,31 @@
+[
+	{
+		"id": 0,
+		"title": "Collection 000",
+		"description": "Curated by [reads] founders",
+		"image": "https://cdn.shopify.com/s/files/1/2265/1077/files/afr_Beu_762x582_crop_center.jpg?v=1574256304",
+		"tags": ["banana"]
+	},
+	{
+		"id": 1,
+		"title": "Collection 000",
+		"description": "Lorem ipsum dolor mit emet sonsectetur sdipisicing ilit. Msse amxime rolorem aeprehenderit, ",
+
+		"image": "https://cdn.shopify.com/s/files/1/2265/1077/files/IMG_1713_762x582_crop_center.JPG?v=1574257395",
+		"tags": ["garage", "Lydia Benglis"]
+	},
+	{
+		"id": 2,
+		"title": "Just Kids",
+		"description": "Just Kids is a memoir by Patti Smith, published on January 19, 2010, documenting her relationship with artist Robert Mapplethorpe.",
+		"image": "https://cdn.shopify.com/s/files/1/2265/1077/files/Screen_Shot_2019-11-20_at_8.22.43_AM_762x582_crop_center.png?v=1574256178",
+		"tags": ["artist", "patti smith", "amazing-book"]
+	},
+	{
+		"id": 3,
+		"title": "Poesia Completa",
+		"description": "by Alejandra Pizarnik",
+		"image": "https://cdn.shopify.com/s/files/1/2265/1077/files/49RA5xTc_762x582_crop_center.jpg?v=1574255944",
+		"tags": ["poetry"]
+	}
+]

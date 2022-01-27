@@ -60,6 +60,56 @@ body {
 .bottom {
 	grid-area: bottom;
 }
+/* media q */
+@media screen and (max-width: 700px) {
+	:root {
+		--section-p: 20px 20px 20px 10px;
+	}
+	body {
+		overflow-x: hidden;
+	}
+
+	.container {
+		grid-template:
+			'messaging ' 80px
+			'top'
+			'bottom' auto / 100vw;
+	}
+
+	.brands-ctn a {
+		animation: movingMobile 10s linear infinite;
+	}
+	@keyframes movingMobile {
+		from {
+			transform: translateX(-500%);
+		}
+
+		to {
+			transform: translateX(250%);
+		}
+	}
+	/*
+	por cascada de styled compontens algns query in component
+	.aside-text-ctn 
+	.promo {
+	brands	
+	custom-products
+	coming
+	
+	*/
+
+	.bottom.footer {
+		padding: var(--section-p);
+		grid-template-columns: 1fr;
+		gap: 20px;
+
+		font-size: 16px;
+	}
+	.menu-list-ctn {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+}
 
 /* global */
 .center {

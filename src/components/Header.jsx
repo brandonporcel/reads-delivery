@@ -45,6 +45,15 @@ const HeaderTag = styled.header`
 			}
 		}
 	}
+	@media screen and (max-width: 700px) {
+		padding-right: 25px;
+		.nav-shop-link {
+			background-color: transparent;
+			a {
+				color: var(--black);
+			}
+		}
+	}
 `;
 
 export default function Header({

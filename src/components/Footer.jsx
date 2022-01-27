@@ -31,6 +31,7 @@ const FooterWrapper = styled.footer`
 		display: grid;
 		grid-template-columns: auto 160px;
 		min-height: 88px;
+
 		input,
 		button {
 			background: transparent;
@@ -52,6 +53,15 @@ const FooterWrapper = styled.footer`
 				background: black;
 				color: white;
 				/* border-top: 4px solid; */
+			}
+		}
+	}
+	@media screen and (max-width: 700px) {
+		.inputs-signup {
+			min-height: 72px;
+			input,
+			button {
+				font-size: 27px;
 			}
 		}
 	}

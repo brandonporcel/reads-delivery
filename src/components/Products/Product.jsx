@@ -37,6 +37,9 @@ const ProductsWrapper = styled.article`
 			height: 40px;
 			overflow: hidden;
 		}
+		div > button {
+			width: 100%;
+		}
 	}
 	span {
 		display: block;

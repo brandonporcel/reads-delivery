@@ -32,6 +32,11 @@ const HeroCtn = styled.section`
 			padding: 1em;
 		}
 	}
+	@media screen and (max-width: 700px) {
+		.content h2 {
+			font-size: 42px;
+		}
+	}
 `;
 export default function Hero() {
 	const { promo } = useContext(PromoContext);

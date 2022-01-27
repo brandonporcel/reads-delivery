@@ -13,6 +13,7 @@ const Container = styled.section`
 	display: grid;
 	grid-template: 'info slide-img' 1fr/1fr 3fr;
 	gap: var(--unit);
+
 	.info {
 		grid-area: info;
 		display: grid;
@@ -47,6 +48,14 @@ const Container = styled.section`
 		overflow: hidden;
 		cursor: crosshair;
 	}
+	@media screen and (max-width: 700px) {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		.img-ctn {
+			height: min-content;
+		}
+	}
 `;
 
 export default function ComingProducts() {
@@ -76,7 +85,7 @@ export default function ComingProducts() {
 	return (
 		<Container>
 			<div className="info">
-				<div>
+				<div className="info-title">
 					<h4>It's Coming...</h4>
 					<div className="number-arrows-ctn">
 						<span className="slide-state">

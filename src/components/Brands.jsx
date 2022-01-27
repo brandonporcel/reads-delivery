@@ -2,25 +2,26 @@ import styled, { keyframes } from 'styled-components';
 import { brands } from '../images/brandsImg';
 const moving = keyframes`
  0% {
-    transform: translateX(-500%); 
-  }
-  100% {
-    transform: translateX(500%);
-  }
+    transform: translateX(-500%); 	
+}
+100% {
+	transform: translateX(500%);
 `;
+
 const BrandsWrapper = styled.section`
 	background: var(--brandBg);
 	display: grid;
 	padding: 44px var(--unit);
 	grid-template-columns: 165px auto;
 	align-items: center;
+
 	.brands-ctn {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		overflow: hidden;
 		a {
 			/* animation: ${moving} 10s cubic-bezier(1, 1.12, 1, 0.89) infinite; */
-			animation: ${moving} 10s linear infinite;
+
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -33,6 +34,18 @@ const BrandsWrapper = styled.section`
 				&:hover {
 					opacity: 1;
 				}
+			}
+		}
+	}
+	@media screen and (max-width: 700px) {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 20px;
+	}
+	@media screen and (min-width: 700px) {
+		.brands-ctn {
+			a {
+				animation: ${moving} 10s linear infinite;
 			}
 		}
 	}

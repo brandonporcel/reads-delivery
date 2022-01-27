@@ -5,13 +5,13 @@ import ProductHeader from './ProductHeader';
 import ProductPagination from './ProductPagination';
 
 const ProductsWrapper = styled.section`
-	padding: var(--unit);
+	padding: var(--section-p);
 	background-color: var(--white);
 
 	.products-ctn {
 		padding: 20px 0;
 		display: grid;
-		grid-template-columns: repeat(4, minmax(200px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		gap: var(--unit);
 	}
 	footer {

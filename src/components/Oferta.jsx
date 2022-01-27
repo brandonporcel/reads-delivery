@@ -15,6 +15,10 @@ const Wrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	height: 60px;
+	@media screen and (max-width: 700px) {
+		width: 90%;
+		right: 25px;
+	}
 	p {
 		font-size: 18px;
 		color: var(--white);

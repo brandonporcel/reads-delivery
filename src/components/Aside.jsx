@@ -10,12 +10,16 @@ const AsideTag = styled.aside`
 		transform: rotate(-90deg);
 		transform-origin: 50% 51%;
 		z-index: 1;
+		@media screen and (max-width: 700px) {
+			height: 80px;
+			transform: initial;
+		}
 	}
 `;
 export default function Aside() {
 	return (
 		<AsideTag>
-			<div className="center  aside-text-ctn">
+			<div className="center aside-text-ctn">
 				<p className="default-cursor hover-underline">Read More</p>
 			</div>
 		</AsideTag>

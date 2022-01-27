@@ -7,6 +7,7 @@ const Header = styled.header`
 	padding: 20px 0;
 	height: 90px;
 	align-items: center;
+
 	.custom-products {
 		display: flex;
 		justify-content: flex-end;
@@ -19,6 +20,14 @@ const Header = styled.header`
 		}
 		option {
 			color: #00000080;
+		}
+	}
+	@media screen and (max-width: 700px) {
+		grid-template-columns: 1fr;
+		height: min-content;
+		gap: 20px;
+		.custom-products {
+			justify-content: flex-start;
 		}
 	}
 `;

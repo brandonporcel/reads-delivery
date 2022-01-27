@@ -17,7 +17,6 @@ export default function ProductPagination({
 					></path>
 				</svg>
 			</button>
-			<input type="text" placeholder="1" className="input" />
 			<button className="input" onClick={paginationDobleProducts}>
 				<svg viewBox="0 0 108.9 51.2">
 					<path

@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { fetchHttps } from '../helpers/fetch';
+import json from '../api/coming.JSON';
 import img from '../images/book-list.jpg';
+import ComingProduct from './ComingProduct';
+import Loader from './Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	nextComingProduct,
+	readComingProduct,
+} from '../actions/coming.actions';
 const Container = styled.section`
 	padding: var(--section-p);
 	background-color: var(--yellow);
@@ -39,18 +48,50 @@ const Container = styled.section`
 		grid-area: slide-img;
 		height: 550px;
 		overflow: hidden;
+		cursor: crosshair;
 	}
 `;
+
 export default function ComingProducts() {
+	const state = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const { products } = state.comingProducts;
+
+	const [productsApi, setProductsApi] = useState([]);
+	const [contador, setContador] = useState(0);
+	useEffect(() => {
+		contador > productsApi.length && setContador(0);
+		contador === -1 && setContador(productsApi.length);
+
+		const handleApi = async (endpoint) => {
+			try {
+				const res = await fetch(endpoint);
+				const data = await res.json();
+				dispatch(readComingProduct(data, contador));
+				setProductsApi(data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		handleApi(json);
+	}, [dispatch, contador, productsApi.length]);
+
 	return (
 		<Container>
 			<div className="info">
 				<div>
 					<h4>It's Coming...</h4>
 					<div className="number-arrows-ctn">
-						<span className="slide-state"> 12/12</span>
+						<span className="slide-state">
+							{contador} / {productsApi.length}
+						</span>
 						<div className="buttons">
-							<button>
+							<button
+								onClick={() => {
+									setContador(contador - 1);
+									dispatch(nextComingProduct(productsApi, contador));
+								}}
+							>
 								<svg viewBox="0 0 108.9 51.2">
 									<path
 										fill="none"
@@ -61,7 +102,12 @@ export default function ComingProducts() {
 									></path>
 								</svg>
 							</button>
-							<button>
+							<button
+								onClick={() => {
+									setContador(contador + 1);
+									dispatch(nextComingProduct(productsApi, contador));
+								}}
+							>
 								<svg viewBox="0 0 108.9 51.2">
 									<path
 										fill="none"
@@ -75,23 +121,22 @@ export default function ComingProducts() {
 						</div>
 					</div>
 				</div>
-				<div className="book-info">
-					<h5>May 2018</h5>
-					<p>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
-						minima?
-					</p>
-					<div className="tags">
-						<ol>
-							<li>Messi</li>
-							<li>hip hop</li>
-						</ol>
-					</div>
+
+				{products.map((el) => (
+					<ComingProduct
+						key={el.id}
+						title={el.title}
+						description={el.description}
+						image={el.image}
+						tags={el.tags}
+					/>
+				))}
+			</div>
+			{products.map((el) => (
+				<div key={el.id} className="img-ctn">
+					<img src={el.image} alt="" />
 				</div>
-			</div>
-			<div className="img-ctn">
-				<img src={img} alt="" />
-			</div>
+			))}
 		</Container>
 	);
 }

@@ -41,9 +41,9 @@ export const nextPagination = (productsDoble, contador) => {
 export const previousPagination = (productsDoble, prevContador) => {
 	return { type: PREV_PAGINATION, payload: { productsDoble, prevContador } };
 };
-export const sortPrice = (productsDoble, value) => {
-	return { type: SORT_PRICE, payload: { productsDoble, value } };
+export const sortPrice = (productsDoble) => {
+	return { type: SORT_PRICE, payload: { productsDoble } };
 };
-export const sortAlphabetical = (productsDoble, value) => {
-	return { type: SORT_ALPHA, payload: { productsDoble, value } };
+export const sortAlphabetical = (productsDoble) => {
+	return { type: SORT_ALPHA, payload: { productsDoble } };
 };

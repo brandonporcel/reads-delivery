@@ -9,3 +9,8 @@ export const NEXT_PAGINATION = 'NEXT_PAGINATION';
 export const PREV_PAGINATION = 'PREV_PAGINATION';
 export const SORT_PRICE = 'SORT_PRICE';
 export const SORT_ALPHA = 'SORT_ALPHA';
+
+// coming products
+export const READ_COMING_PRODUCT = 'READ_COMING_PRODUCT';
+export const NEXT_COMING_PRODUCT = 'NEXT_COMING_PRODUCT';
+export const PREV_COMING_PRODUCT = 'PREV_COMING_PRODUCT';

@@ -1,10 +1,37 @@
 [
 	{
-		"id": 1,
-		"title": "May 2018",
-		"description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, minima?",
-		"image": "http://localhost:3000/static/media/book-list.a8571fd1c04dce594da0.jpg",
-		"tags": ["literature,hip hop"]
+		"id": 0,
+		"title": "Banana",
+		"description": "Curated by [reads] founders?",
+		"image": "/static/media/coming-1.1bb3e9f585b31ff9858a.jpg",
+		"tags": ["banana"]
 	},
-	{}
+	{
+		"id": 1,
+		"title": "GARBAGE",
+		"description": "Curated by Luis Ortega Govela and Olivia Erlanger",
+		"image": "/static/media/coming-2.54de1b22fbcfb6e2a5bd.jpg",
+		"tags": ["garage", "Lydia Benglis"]
+	},
+	{
+		"id": 2,
+		"title": "Just Kids",
+		"description": "Just Kids is a memoir by Patti Smith, published on January 19, 2010, documenting her relationship with artist Robert Mapplethorpe.",
+		"image": "/static/media/coming-3.52adc2e3e938d679a216.png",
+		"tags": ["artist", "patti smith", "amazing-book"]
+	},
+	{
+		"id": 3,
+		"title": "Poesia Completa",
+		"description": "by Pizarnik",
+		"image": "/static/media/coming-4.daec7a3d7d382e63dcfa.jpg",
+		"tags": ["you will see"]
+	},
+	{
+		"id": 4,
+		"title": "Sobre Heroes y Tumbas",
+		"description": "Novel by Argentine writer Ernesto Sabato, first published in Buenos Aires in 1961 and translated by Helen R. Lane in 1981",
+		"image": "/static/media/coming-5.681438806044d76b1c0d.jpeg",
+		"tags": [1961, "novel"]
+	}
 ]

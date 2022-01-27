@@ -15,13 +15,13 @@ export const initialState = {
 	products: [],
 	cart: [],
 };
+
 export function shoppingReducer(state = initialState, action) {
-	let productsDoblee = [];
 	let itempsPerPage = 4;
 	switch (action.type) {
 		case READ_PRODUCTS: {
 			const productsFromApi = action.payload.data.map((product) => product);
-			productsDoblee = [...productsFromApi].splice(0, itempsPerPage);
+			const productsDoblee = [...productsFromApi].splice(0, itempsPerPage);
 
 			return {
 				...state,
@@ -116,8 +116,6 @@ export function shoppingReducer(state = initialState, action) {
 		case SORT_ALPHA: {
 			const productsDobleALpha = action.payload.productsDoble;
 
-			// const valueSort = action.payload.value;
-
 			const sortAlpha = productsDobleALpha.sort((a, b) => {
 				return a.title.localeCompare(b.title);
 			});
@@ -126,7 +124,6 @@ export function shoppingReducer(state = initialState, action) {
 		}
 		case SORT_PRICE: {
 			const productsDoblePrice = action.payload.productsDoble;
-			// const valueSort = action.payload.value;
 
 			const sortPrice = productsDoblePrice.sort((a, b) => {
 				if (a.price > b.price) return -1;

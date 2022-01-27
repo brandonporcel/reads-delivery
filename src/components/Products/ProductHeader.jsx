@@ -24,19 +24,19 @@ const Header = styled.header`
 	}
 `;
 export default function ProductHeader({ searcher, sortAlphabeticalPrice }) {
-	const [selectOrder, setSelectOrder] = useState({
-		value: '',
-	});
+	// const [selectOrder, setSelectOrder] = useState({
+	// 	value: '',
+	// });
 
-	const handleSort = (e) => {
-		const a = e.target.value;
+	// const handleSort = (e) => {
+	// 	const a = e.target.value;
 
-		// if (e.target.value === 'name') {
-		// 	setSelectOrder({ value: 'name' });
-		// } else {
-		// 	setSelectOrder({ value: 'price' });
-		// }
-	};
+	// 	// if (e.target.value === 'name') {
+	// 	// 	setSelectOrder({ value: 'name' });
+	// 	// } else {
+	// 	// 	setSelectOrder({ value: 'price' });
+	// 	// }
+	// };
 	return (
 		<Header>
 			<h3>Shop</h3>

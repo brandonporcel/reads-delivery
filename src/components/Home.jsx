@@ -17,14 +17,15 @@ import {
 	sortAlphabetical,
 	sortPrice,
 } from '../actions/shopping.actions';
+
 export default function Home() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
 	// paginacion
 	const [contador, setContador] = useState(1);
-	const [prevContador, setPrevContador] = useState(contador);
 
 	const [cartOpen, setCartOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
+	// products from api
 	const [searcherInput, setSearcherInput] = useState([]);
 	const handlePopUpSubmit = (e, form, setForm) => {
 		e.preventDefault();
@@ -103,8 +104,8 @@ export default function Home() {
 					// filtro sort
 					sortAlphabeticalPrice={(value) =>
 						value === 'name'
-							? dispatch(sortAlphabetical(searcherInput, value))
-							: dispatch(sortPrice(searcherInput, value))
+							? dispatch(sortAlphabetical(searcherInput))
+							: dispatch(sortPrice(searcherInput))
 					}
 					loading={loading}
 					addToCart={(id) => dispatch(addToCart(id))}

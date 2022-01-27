@@ -30,6 +30,12 @@ const CartProductWrapper = styled.article`
 			}
 		}
 	}
+	@media screen and (max-width: 700px) {
+		width: 270px;
+		.cart-product-body {
+			width: 210px;
+		}
+	}
 `;
 export default function CartProduct({
 	id,

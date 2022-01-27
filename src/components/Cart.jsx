@@ -24,6 +24,9 @@ const CartWrapper = styled.div`
 		transform: translateX(0);
 		opacity: 1;
 		visibility: visible;
+		@media screen and (max-width: 700px) {
+			gap: 15px;
+		}
 	}
 	.title {
 		border-bottom: 1px solid #00000075;
@@ -33,9 +36,6 @@ const CartWrapper = styled.div`
 	.cart-products-ctn {
 		padding: 0 1em;
 		overflow: auto;
-		.no-products-text {
-			margin-top: 20px;
-		}
 	}
 	.buy-btn {
 		padding: 0 1em;
@@ -59,7 +59,7 @@ export default function Cart({
 			</div>
 			<div className="cart-products-ctn">
 				{cart.length === 0 ? (
-					<p className="no-products-text"> No products...</p>
+					<p> No products...</p>
 				) : (
 					cart.map((el) => {
 						return (

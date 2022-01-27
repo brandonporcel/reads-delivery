@@ -21,7 +21,7 @@ const BrandsWrapper = styled.section`
 		overflow: hidden;
 		a {
 			/* animation: ${moving} 10s cubic-bezier(1, 1.12, 1, 0.89) infinite; */
-
+			animation: ${moving} 10s linear infinite;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -38,16 +38,10 @@ const BrandsWrapper = styled.section`
 		}
 	}
 	@media screen and (max-width: 700px) {
+		padding: 20px 35px 20px 20px;
 		grid-template-columns: 1fr;
 		text-align: center;
 		gap: 20px;
-	}
-	@media screen and (min-width: 700px) {
-		.brands-ctn {
-			a {
-				animation: ${moving} 10s linear infinite;
-			}
-		}
 	}
 `;
 

@@ -38,7 +38,7 @@ const ProductsWrapper = styled.article`
 			overflow: hidden;
 		}
 		div > button {
-			width: 100%;
+			width: 100%	;
 		}
 	}
 	span {
@@ -66,13 +66,16 @@ const ProductsWrapper = styled.article`
 		animation: ${notifHide} 2.5s forwards;
 		transition: opacity 1s;
 		padding: 0 15px;
-		.add-to-cart-notif-ctn {
+	}
+	.add-to-cart-notif-ctn {
+			grid-template-columns: 3fr 1fr;
 			transition: opacity 1s;
 			position: absolute;
-			display: flex;
+			
 			align-items: center;
 			justify-content: space-around;
 			width: 100%;
+			display: grid;
 			p,
 			button {
 				padding: 10px;
@@ -93,6 +96,12 @@ const ProductsWrapper = styled.article`
 					color: #181818;
 				}
 			}
+		}
+	}
+	@media screen and (max-width: 700px) {
+		.add-to-cart-notif{
+			left:27px;
+			width: 90%;
 		}
 	}
 `;

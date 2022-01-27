@@ -15,7 +15,7 @@ const Section = styled.section`
 		border: 1px solid;
 	}
 	@media screen and (max-width: 700px) {
-		padding: 40px 40px 40px 30px;
+		padding: 80px 40px 80px 30px;
 		grid-template-columns: 1fr;
 		p {
 			font-size: 18px;

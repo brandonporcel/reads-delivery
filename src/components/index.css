@@ -77,15 +77,15 @@ body {
 	}
 
 	.brands-ctn a {
-		animation: movingMobile 10s linear infinite;
+		animation: movingMobile 8s linear infinite;
 	}
 	@keyframes movingMobile {
 		from {
-			transform: translateX(-500%);
+			transform: translateX(-100%);
 		}
 
 		to {
-			transform: translateX(250%);
+			transform: translateX(100%);
 		}
 	}
 	/*
@@ -100,6 +100,7 @@ body {
 
 	.bottom.footer {
 		padding: var(--section-p);
+		padding-bottom: 40px;
 		grid-template-columns: 1fr;
 		gap: 20px;
 

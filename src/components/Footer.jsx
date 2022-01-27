@@ -50,8 +50,8 @@ const FooterWrapper = styled.footer`
 			border-top: 2px solid;
 			border-bottom: 2px solid;
 			&:hover {
-				background: black;
-				color: white;
+				background: var(--black);
+				color: var(--white);
 				/* border-top: 4px solid; */
 			}
 		}

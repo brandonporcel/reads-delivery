@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -50,7 +49,10 @@ export default function ProductHeader({ searcher, sortAlphabeticalPrice }) {
 					/>
 				</div>
 				{/* <select onChange={handleSort}> */}
-				<select onChange={(e) => sortAlphabeticalPrice(e.target.value)}>
+				<select
+					className="input"
+					onChange={(e) => sortAlphabeticalPrice(e.target.value)}
+				>
 					<option name="name" value="name">
 						Name
 					</option>

@@ -23,6 +23,8 @@ const FooterWrapper = styled.footer`
 	label {
 		margin-bottom: 1em;
 		display: block;
+		/* text-decoration: underline; */
+		border-bottom: thin solid;
 		cursor: pointer;
 	}
 	.inputs-signup {
@@ -67,7 +69,11 @@ export default function Footer({ handlePopUpSubmit, isOpenModal, closeModal }) {
 			<div className="menu-list-ctn default-cursor">
 				<div className="left">
 					<ul>
-						<li>Sign up</li>
+						<li style={{ textDecoration: 'underline' }}>
+							<a href="https://reads.delivery" target={'noreferrer'}>
+								Visit original
+							</a>{' '}
+						</li>
 						<li>Libraries</li>
 						<li>Collections</li>
 						<li>How it works</li>
@@ -102,7 +108,7 @@ export default function Footer({ handlePopUpSubmit, isOpenModal, closeModal }) {
 			{
 				<PopUp isOpen={isOpenModal} closeModal={closeModal}>
 					<h6>Hi {form.name}</h6>
-					<small>💗</small>
+					<small>👋</small>
 				</PopUp>
 			}
 		</FooterWrapper>

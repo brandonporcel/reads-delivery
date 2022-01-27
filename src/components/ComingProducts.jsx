@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { fetchHttps } from '../helpers/fetch';
 import json from '../api/coming.JSON';
-import img from '../images/book-list.jpg';
 import ComingProduct from './ComingProduct';
-import Loader from './Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	nextComingProduct,

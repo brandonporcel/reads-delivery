@@ -60,7 +60,7 @@ const ProductsWrapper = styled.article`
 		justify-content: center;
 		align-items: center;
 		z-index: 50;
-		animation: ${notifHide} 2s forwards;
+		animation: ${notifHide} 2.5s forwards;
 		transition: opacity 1s;
 		padding: 0 15px;
 		.add-to-cart-notif-ctn {

@@ -8,9 +8,12 @@ export const comingProducts = (state = initialProducts, action) => {
 	switch (action.type) {
 		case READ_COMING_PRODUCT: {
 			const comingProducts = action.payload.data;
-			const randomIndex = Math.round(Math.random() * comingProducts.length) - 1;
+			// const randomIndex = Math.round(Math.random() * comingProducts.length) - 1;
 
-			return { ...state, products: comingProducts.splice(randomIndex, 1) };
+			return {
+				...state,
+				products: comingProducts.splice(action.payload.contador, 1),
+			};
 		}
 		case NEXT_COMING_PRODUCT: {
 			const index = action.payload.contador;

@@ -89,7 +89,7 @@ export function shoppingReducer(state = initialState, action) {
 				action.payload.contador === 5
 					? (action.payload.contador = 0)
 					: action.payload.contador * itempsPerPage;
-			console.log('next', action.payload.contador, index);
+
 			const productsShow = [...action.payload.productsDoble].splice(
 				index,
 				itempsPerPage

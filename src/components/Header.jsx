@@ -30,9 +30,6 @@ const HeaderTag = styled.header`
 
 	.nav-cart {
 		order: 3;
-
-		/* justify-content: flex-end; */
-		/* margin: 0 25px 0 0; */
 		span {
 			cursor: pointer;
 		}

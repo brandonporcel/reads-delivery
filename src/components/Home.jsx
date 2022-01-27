@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import Aside from './/Aside';
 import Header from './/Header';
 import Footer from './/Footer';
 import Content from './/Content';
-
 import { useModal } from '../hooks/useModal';
-import { useSelector, useDispatch } from 'react-redux';
+
+// for redux
 import {
 	addToCart,
 	deleteFromCart,
@@ -20,13 +22,21 @@ import {
 
 export default function Home() {
 	const [isOpenModal, openModal, closeModal] = useModal(false);
+	const [loading, setLoading] = useState(false);
 	// paginacion
 	const [contador, setContador] = useState(1);
-
-	const [cartOpen, setCartOpen] = useState(false);
-	const [loading, setLoading] = useState(false);
 	// products from api
 	const [searcherInput, setSearcherInput] = useState([]);
+	// header cart
+	const [cartOpen, setCartOpen] = useState(false);
+	const handleCart = (id) => {
+		if (cartOpen) {
+			setCartOpen(false);
+		} else {
+			setCartOpen(true);
+		}
+	};
+
 	const handlePopUpSubmit = (e, form, setForm) => {
 		e.preventDefault();
 		if (!form.name.trim() || form.name === undefined) {
@@ -36,16 +46,8 @@ export default function Home() {
 			openModal();
 		}
 	};
-	const handleCart = (id) => {
-		if (cartOpen) {
-			setCartOpen(false);
-		} else {
-			setCartOpen(true);
-		}
-	};
-	// -------------------
+	// -redux
 	const state = useSelector((state) => state);
-
 	const dispatch = useDispatch();
 	const { products, cart } = state.shopping;
 
@@ -109,8 +111,8 @@ export default function Home() {
 					}
 					loading={loading}
 					addToCart={(id) => dispatch(addToCart(id))}
-					products={products}
 					handleCart={handleCart}
+					products={products}
 				/>
 			</div>
 			<Footer

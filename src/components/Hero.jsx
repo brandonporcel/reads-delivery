@@ -62,7 +62,7 @@ export default function Hero() {
 							rel="noreferrer"
 							href="https://www.instagram.com/reads.delivery/"
 						>
-							Check out our Instagram →
+							Check out their Instagram →
 						</a>
 					}
 				/>

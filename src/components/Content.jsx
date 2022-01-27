@@ -5,7 +5,7 @@ import Hero from './Hero';
 import Products from './Products/Products';
 
 import SectionInfo from './SectionInfo';
-
+import sectionImg from '../images/section-img.jpg';
 const MainTag = styled.main`
 	position: relative;
 	z-index: 5;
@@ -13,7 +13,9 @@ const MainTag = styled.main`
 const sections = [
 	{
 		id: '1',
-		text: 'To our [reads] community Firstly, we wanted to say thank you for being so supportive of [reads] as a brand and business and us as people.',
+		text: [
+			'This website is purely and exclusively to be able to evaluate my skills in React.js. The images, layout, texts were all taken from reads.delivery',
+		],
 		img: '//cdn.shopify.com/s/files/1/2265/1077/files/25C4912_1280x1280.jpg?v=1558112595',
 		bg: 'var(--green)',
 		caption: 'June 2018 [reads] box curated by Molly Young and Joana Avillez',
@@ -21,10 +23,14 @@ const sections = [
 	},
 	{
 		id: '2',
-		text: "Our friends helped us make a video, we launched [reads] on Kickstarter and threw a party before we knew what we were getting ourselves into. We had no idea where [reads] would go, or what it would be but we knew books were important and they weren't going anywhere.",
-		img: '//cdn.shopify.com/s/files/1/2265/1077/files/18814571_1493326030738909_736858780525996013_o_1280x1280.jpg?v=1564760878',
+		text: [
+			'The next store is totally fake. As I said, the idea of this website is recreate the web of [reads] for improve my skills in developing',
+			'-----------------------------------------------',
+			'Lorem ipsum dolor mit emet sonsectetur sdipisicing ilit. Msse amxime rolorem aeprehenderit, denetur ollo noluptatibus aic.',
+		],
+		img: sectionImg,
 		bg: 'var(--orange)',
-		caption: 'Us in December 2016 when [reads] was just an idea.',
+		caption: 'Image taken from [reads] instagram (@reads.delivery).',
 		reverse: true,
 	},
 ];
@@ -66,6 +72,7 @@ export default function Content({
 				products={products}
 				handleCart={handleCart}
 			/>
+
 			<ComingProducts />
 		</MainTag>
 	);
